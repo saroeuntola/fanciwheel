@@ -23,39 +23,35 @@ if ($selectedCategory) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Title for search engines -->
+  <title>FancyWheel - Spin & Win Real Rewards Instantly!</title>
 
-  <!-- Page Title -->
-  <title>FanciWheel - Spin & Win Exciting Prizes</title>
+  <!-- Meta description for Google -->
+  <meta name="description" content="Spin the FancyWheel and win real cash rewards instantly. No sign-up required — just pure luck and fun! Try your fortune now.">
 
-  <!-- Meta Description (important for SEO) -->
-  <meta name="description" content="Play FanciWheel and win exciting cash prizes instantly. just spin and win!">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://fanciwheel.com" />
 
-  <!-- Meta Keywords (optional, not widely used anymore) -->
-  <meta name="keywords" content="spin wheel, lucky draw, online game, win money, instant prize, FanciWheel, Casino, rewards, fun game,football live, live casino, online casino, spin and win,fancywin">
-  <!-- Author -->
-  <meta name="author" content="FanciWheel Team">
-
-  <!-- Canonical URL (prevents duplicate SEO penalties) -->
-  <link rel="canonical" href="https://fanciwheel.com/" />
-
-  <!-- Open Graph for social sharing -->
-  <meta property="og:title" content="FanciWheel - Spin & Win!" />
-  <meta property="og:description" content="Try your luck with FanciWheel. Spin the wheel and claim real rewards!" />
-  <meta property="og:url" content="https://fanciwheel.com/" />
+  <!-- Open Graph (for Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="FancyWheel - Spin & Win Real Rewards!" />
+  <meta property="og:description" content="Spin the lucky wheel and win exciting prizes instantly. It’s fun, fast, and free to play." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fanciwheel.com" />
   <meta property="og:image" content="https://fanciwheel.com/assets/og-image.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FanciWheel - Spin & Win!" />
-  <meta name="twitter:description" content="Play now and win amazing prizes on FanciWheel!" />
+  <meta name="twitter:title" content="FancyWheel - Spin & Win Real Rewards!" />
+  <meta name="twitter:description" content="Try your luck on FancyWheel and win instant rewards. Spin now!" />
   <meta name="twitter:image" content="https://fanciwheel.com/assets/og-image.jpg" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 
 <style>
   /* Line clamp utilities */
