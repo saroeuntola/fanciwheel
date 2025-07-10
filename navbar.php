@@ -2,8 +2,7 @@
 session_start();
 include './admin/page/library/users_lib.php';
 include './admin/page/library/brand_lib.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/config/baseURL.php';
-
+include $_SERVER['DOCUMENT_ROOT'] . '/spinwheel/config/baseURL.php';
 $auth = new User();
 $brand = new Brand();
 

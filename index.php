@@ -25,9 +25,38 @@ if ($selectedCategory) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+
+  <!-- Page Title -->
+  <title>FanciWheel - Spin & Win Exciting Prizes</title>
+
+  <!-- Meta Description (important for SEO) -->
+  <meta name="description" content="Play FanciWheel and win exciting cash prizes instantly. just spin and win!">
+
+  <!-- Meta Keywords (optional, not widely used anymore) -->
+  <meta name="keywords" content="spin wheel, lucky draw, online game, win money, instant prize, FanciWheel, Casino, rewards, fun game,football live, live casino, online casino, spin and win,fancywin">
+  <!-- Author -->
+  <meta name="author" content="FanciWheel Team">
+
+  <!-- Canonical URL (prevents duplicate SEO penalties) -->
+  <link rel="canonical" href="https://fanciwheel.com/" />
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="FanciWheel - Spin & Win!" />
+  <meta property="og:description" content="Try your luck with FanciWheel. Spin the wheel and claim real rewards!" />
+  <meta property="og:url" content="https://fanciwheel.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://fanciwheel.com/assets/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FanciWheel - Spin & Win!" />
+  <meta name="twitter:description" content="Play now and win amazing prizes on FanciWheel!" />
+  <meta name="twitter:image" content="https://fanciwheel.com/assets/og-image.jpg" />
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <style>
   /* Line clamp utilities */
   .line-clamp-1 {
@@ -175,8 +204,8 @@ if ($selectedCategory) {
       <canvas id="wheelCanvas" width="288" height="288" class="rounded-full shadow-lg"></canvas>
       
       <!-- Needle -->
-      <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-0 h-0 
-                  border-l-[12px] border-r-[12px] border-b-[30px] 
+      <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-0 h-0 text-red-600 
+                  border-l-[12px] border-r-[12px] border-t-[30px] 
                   border-l-transparent border-r-transparent border-b-red-600 z-20 drop-shadow-lg"></div>
 
       <!-- Spin Button -->
