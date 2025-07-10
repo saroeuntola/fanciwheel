@@ -8,7 +8,7 @@ function dbConn()
     // $password = "";
     // $db = "spinwheel_db";
     $servername = "localhost";
-    $username = "whtola";
+    $username = "u582932647_whtola";
     $password = "Welcome2@Wh123";
     $db = "u582932647_fanciwheeldemo";
 
