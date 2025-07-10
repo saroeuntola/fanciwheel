@@ -3,14 +3,14 @@
 
 function dbConn()
 {
-    // $servername = "localhost";
-    // $username = "root";
-    // $password = "";
-    // $db = "spinwheel_db";
     $servername = "localhost";
-    $username = "u582932647_whtola";
-    $password = "Welcome2@Wh123";
-    $db = "u582932647_fanciwheeldemo";
+    $username = "root";
+    $password = "";
+    $db = "spinwheel_db";
+    // $servername = "localhost";
+    // $username = "u582932647_whtola";
+    // $password = "Welcome2@Wh123";
+    // $db = "u582932647_fanciwheeldemo";
 
 
     try {
