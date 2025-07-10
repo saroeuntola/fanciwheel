@@ -29,47 +29,37 @@
 <body class="bg-gray-100">
   <?php include 'navbar.php'; ?>
   <?php include 'loading.php'; ?>
-
   <!-- Game Detail -->
-  <div class="max-w-5xl mx-auto py-12 px-4 mb-10">
-    <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10">
-      <div class="flex flex-col md:flex-row gap-8">
+  <div class="max-w-5xl mx-auto py-5 px-4 mb-10">
+    <div class="md:p-10">
+      <div class="md:flex-row gap-8">
+              <!-- Game Info -->
+              <div class=" justify-between">
+          <div>
+            <h1 class="text-4xl font-extrabold text-gray-800 mb-4">
+            The company you keep can significantly <?= htmlspecialchars($game['name']) ?>
+            </h1>
+          </div>
+        </div>
         <!-- Game Image -->
-        <div class="md:w-1/2 overflow-hidden rounded-2xl">
+        <div class="w-full overflow-hidden rounded-2xl">
           <img
             src="<?= './admin/page/game/' . htmlspecialchars($game['image']) ?>"
             alt="<?= htmlspecialchars($game['name']) ?>"
-            class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500 "
+            class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500 "
           />
         </div>
-
-        <!-- Game Info -->
-        <div class="md:w-1/2 flex flex-col justify-between">
-          <div>
-            <h1 class="text-4xl font-extrabold text-gray-800 mb-4">
-              <?= htmlspecialchars($game['name']) ?>
-            </h1>
-            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-              <?= nl2br(htmlspecialchars($game['description'])) ?>
-            </p>
-          </div>
-
-          <!-- Action Button -->
-          <a
-            href="<?= htmlspecialchars($game['game_link']) ?>"
-            class="inline-block w-full md:w-auto text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold shadow hover:from-indigo-700 hover:to-purple-700 transition-all duration-300"
-            target="_blank" rel="noopener noreferrer"
-          >
-            Play Now
-          </a>
-        </div>
+        <p class="text-lg text-gray-600 mb-6 leading-relaxed mt-4">
+              <?= nl2br(htmlspecialchars($game['description'])) ?>.
+            
+        </p>
       </div>
     </div>
   </div>
 
   <!-- Related Games -->
   <div class="max-w-5xl mx-auto px-4 mb-16">
-    <h2 class="text-2xl font-bold text-gray-800 mb-6">Related Games</h2>
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Related Post</h2>
     <?php if (count($relatedGames)): ?>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         <?php foreach ($relatedGames as $related): ?>

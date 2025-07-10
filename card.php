@@ -1,6 +1,4 @@
-<?php
-// Add this CSS to your existing styles or create a new stylesheet
-?>
+
 <style>
     * {
         margin: 0;
@@ -255,7 +253,7 @@
 
 <div class="games-container">
     <div class="games-header">
-        <h1 class="games-title">Popular Cities in Bangladesh
+        <h1 class="games-title md:text-sm">Popular Cities in Bangladesh
         </h1>
         <a href="#" class="see-all-btn">See all</a>
     </div>
@@ -339,10 +337,7 @@
 </script>
 
 <?php
-// Alternative PHP approach with more features
-// You can also create a more advanced version with these additional features:
 
-// Function to generate star rating HTML
 function generateStarRating($rating, $maxStars = 5) {
     $html = '<div class="rating-stars">';
     for ($i = 1; $i <= $maxStars; $i++) {
@@ -378,12 +373,12 @@ function truncateText($text, $length = 120) {
 
 <div class="games-container">
     <div class="games-header">
-        <h1 class="games-title">Top Games Collection</h1>
+        < <h1 class="games-title left-0">Trending Cities in Bangladesh
+        </h1>
         <a href="all-games.php" class="see-all-btn">See all</a>
     </div>
     
     <p class="games-subtitle">These rankings are informed by user reviews, ratings, number of downloads, and gameplay hours.</p>
-    
     <div class="games-grid">
         <?php if (!empty($games)): ?>
             <?php foreach ($games as $index => $g): ?>
@@ -444,7 +439,6 @@ function truncateText($text, $length = 120) {
         <?php endif; ?>
     </div>
 </div>
-
 <script>
     function toggleFavorite(btn, gameId) {
         const isFavorited = btn.style.backgroundColor === 'rgb(255, 71, 87)';
