@@ -234,11 +234,13 @@ if ($selectedCategory) {
   const spinBtn = document.getElementById('spinBtn');
   const prizeMessage = document.getElementById('prizeMessage');
   const prizeText = document.getElementById('prizeText');
+
   const prizes = ["20$", "100$", "1$", "50$", "0$", "1000$", "10$", "5$"];
   const colors = ["#f87171", "#a78bfa", "#60a5fa", "#34d399", "#fbbf24", "#f472b6", "#818cf8", "#22d3ee"];
 
   const segments = prizes.length;
   const segmentAngle = 2 * Math.PI / segments;
+
   let startAngle = 0;
   let spinTimeout = null;
   let spinAngleStart = 0;
@@ -247,13 +249,15 @@ if ($selectedCategory) {
 
   function drawWheel() {
     for (let i = 0; i < segments; i++) {
-      let angle = startAngle + i * segmentAngle;
+      const angle = startAngle + i * segmentAngle;
       ctx.beginPath();
       ctx.fillStyle = colors[i];
       ctx.moveTo(canvas.width / 2, canvas.height / 2);
       ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2 - 10, angle, angle + segmentAngle, false);
       ctx.lineTo(canvas.width / 2, canvas.height / 2);
       ctx.fill();
+
+      // Draw prize text
       ctx.save();
       ctx.fillStyle = "#fff";
       ctx.translate(canvas.width / 2, canvas.height / 2);
@@ -285,9 +289,9 @@ if ($selectedCategory) {
     spinBtn.disabled = true;
     prizeMessage.classList.add("hidden");
 
-    spinAngleStart = Math.random() * 4000 + 5000; // Faster
+    spinAngleStart = Math.random() * 4000 + 5000; // random total spin angle
     spinTime = 0;
-    spinTimeTotal = Math.random() * 5000 + 6000; // Longer
+    spinTimeTotal = Math.random() * 5000 + 6000; // spin duration
 
     rotate();
   }
@@ -305,23 +309,27 @@ if ($selectedCategory) {
   }
 
   function stopRotateWheel() {
-    clearTimeout(spinTimeout);
+  clearTimeout(spinTimeout);
 
-    const finalAngle = easeOut(spinTimeTotal, 0, spinAngleStart, spinTimeTotal);
-    const degrees = finalAngle % 360;
-    const index = Math.floor((360 - degrees + 22.5) / 45) % prizes.length;
+  const finalAngle = easeOut(spinTimeTotal, 0, spinAngleStart, spinTimeTotal);
+  const degrees = finalAngle % 360;
 
-    prizeText.textContent = `🎉 You won: ${prizes[index]}!`;
-    prizeMessage.classList.remove("hidden");
-    spinBtn.disabled = false;
-  }
+  // Adjust based on the pointer being at 270 degrees (top of the canvas)
+  const adjustedDegrees = (360 - degrees + 270) % 360;
+
+  const index = Math.floor(adjustedDegrees / (360 / prizes.length)) % prizes.length;
+
+  prizeText.textContent = `🎉 You won: ${prizes[index]}!`;
+  prizeMessage.classList.remove("hidden");
+  spinBtn.disabled = false;
+}
 
   spinBtn.addEventListener("click", spin);
 
   window.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       document.getElementById("spinModal").classList.remove("hidden");
-      rotateWheel(0); // Draw initially
+      rotateWheel(0); // Draw the wheel initially
     }, 500);
   });
 
@@ -329,6 +337,7 @@ if ($selectedCategory) {
     document.getElementById("spinModal").classList.add("hidden");
   }
 </script>
+
 <script>
   // Example banner images (update with your real URLs)
   const banners = [
