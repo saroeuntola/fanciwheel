@@ -1,0 +1,86 @@
+<?php
+include "./admin/page/library/game_lib.php";
+include "./admin/page/library/db.php";
+$gameObj = new Games();
+
+// Get search query
+$query = isset($_GET['q']) ? trim($_GET['q']) : '';
+$games = $query ? $gameObj->searchgames($query) : [];
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+
+<?php include 'navbar.php'; ?>
+
+<!-- Header Banner -->
+<section class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 text-center shadow-md">
+  <div class="max-w-4xl mx-auto px-4">
+    <h1 class="text-4xl font-extrabold mb-2 tracking-tight">Search Results</h1>
+    <p class="text-lg font-medium">
+      Showing results for: <span class="underline underline-offset-2"><?= htmlspecialchars($query) ?></span>
+    </p>
+  </div>
+</section>
+
+<main class="container mx-auto px-4 py-12">
+  <?php if ($query && count($games) > 0): ?>
+    <!-- Game Results Grid -->
+    <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <?php foreach ($games as $g): ?>
+        <div class="group relative bg-white rounded-xl shadow-sm hover:shadow-xl border border-slate-200 hover:border-blue-400 transition-all duration-300 overflow-hidden">
+          <!-- Image -->
+          <a href="game-detail.php?id=<?= $g['id'] ?>">
+            <?php if (!empty($g['image'])): ?>
+              <img src="<?= './admin/page/game/' . htmlspecialchars($g['image']) ?>"
+                   alt="<?= htmlspecialchars($g['name']) ?>"
+                   class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
+            <?php else: ?>
+              <div class="w-full h-48 bg-slate-100 flex items-center justify-center">
+                <span class="text-slate-400 font-medium">No Image</span>
+              </div>
+            <?php endif; ?>
+          </a>
+
+          <!-- Info -->
+          <div class="p-5">
+            <h3 class="text-lg font-semibold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors">
+              <?= htmlspecialchars($g['name']) ?>
+            </h3>
+            <p class="text-slate-600 text-sm line-clamp-2 leading-relaxed">
+              <?= htmlspecialchars($g['description']) ?>
+            </p>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  <?php elseif ($query): ?>
+    <!-- No Results -->
+    <div class="text-center py-20">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-slate-100 rounded-full mb-4">
+        <i class="fas fa-search text-slate-400 text-2xl"></i>
+      </div>
+      <h2 class="text-xl font-semibold text-slate-700 mb-2">No games found</h2>
+      <p class="text-slate-500 mb-6">We couldn’t find any matches for "<strong><?= htmlspecialchars($query) ?></strong>".</p>
+      <a href="index.php" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
+        Back to Games
+      </a>
+    </div>
+  <?php else: ?>
+    <!-- No Query -->
+    <div class="text-center py-20">
+      <p class="text-lg text-slate-500">Please enter a search term to see results.</p>
+    </div>
+  <?php endif; ?>
+</main>
+
+</body>
+</html>
