@@ -2,29 +2,34 @@
 session_start();
 include './admin/page/library/users_lib.php';
 include './admin/page/library/brand_lib.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/config/baseURL.php';
+
 $auth = new User();
-$brand= new Brand();
+$brand = new Brand();
+
 $username = $_SESSION['username'] ?? '';
 $userId = $_SESSION['user_id'] ?? null;
 
 $brandList = $brand->getBrand();
-$profilePath = './default-profile.png';
 $user = null;
 
+// Get user
 if ($userId) {
   $userLib = new User();
   $user = $userLib->getUserByID($userId);
 }
 
+// Build profile image path
 $profileImage = isset($user['profile']) && !empty($user['profile']) ? $user['profile'] : 'default.png';
-$profilePath = '/spinwheel/admin/page/user/user_image/' . htmlspecialchars($profileImage);
+$profilePath = $baseURL . '/admin/page/user/user_image/' . htmlspecialchars($profileImage);
 
-// Check if file exists
-$fullPath = $_SERVER['DOCUMENT_ROOT'] . $profilePath;
+// Check if file exists on server
+$fullPath = $_SERVER['DOCUMENT_ROOT'] . '/admin/page/user/user_image/' . $profileImage;
 if (!file_exists($fullPath)) {
-  $profilePath = '/spinwheel/admin/page/user/user_image/default.png';
+  $profilePath = $baseURL . '/admin/page/user/user_image/default.png';
 }
 ?>
+
 
 <!-- Modern Navbar with Glassmorphism Effect -->
 <nav class="relative bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 backdrop-blur-md shadow-2xl border-b border-white/10">
@@ -94,7 +99,7 @@ if (!file_exists($fullPath)) {
             </button>
             <div id="profileDropdown" class="absolute right-0 mt-2 w-48 bg-slate-800/95 backdrop-blur-lg border border-slate-700/50 text-white rounded-xl shadow-2xl hidden z-[9999] overflow-hidden">
               <div class="py-1">
-                <a href="/spinwheel/admin/page/user/profile.php" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700/50 transition-all duration-200">
+                <a href="<?= $baseURL ?>/admin/page/user/profile.php" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700/50 transition-all duration-200">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                   </svg>
@@ -131,7 +136,7 @@ if (!file_exists($fullPath)) {
     <!-- Mobile Profile Dropdown -->
     <div id="mobileProfileDropdown" class="absolute right-12 top-12 w-48 bg-slate-800/95 backdrop-blur-lg border border-slate-700/50 text-white rounded-xl shadow-2xl hidden z-[9999] overflow-hidden">
       <div class="py-1">
-        <a href="/spinwheel/admin/page/user/profile.php" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700/50 transition-all duration-200">
+        <a href="<?= $baseURL ?>/admin/page/user/profile.php" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700/50 transition-all duration-200">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
           </svg>
