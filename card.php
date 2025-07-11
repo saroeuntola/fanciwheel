@@ -253,7 +253,7 @@
 
 <div class="games-container">
     <div class="games-header">
-        <h1 class="games-title md:text-sm">Popular Cities in Bangladesh
+        <h1 class="sm:text-2xl md:text-2xl lg:text-3xl text-black">Popular Cities in Bangladesh
         </h1>
         <a href="#" class="see-all-btn">See all</a>
     </div>
@@ -297,7 +297,7 @@
                             </div>
                             <span class="rating-count"><?= isset($g['review_count']) ? number_format($g['review_count']) : rand(100, 2000) ?></span>
                         </div>
-                        <div class="game-category"><?= isset($g['category']) ? htmlspecialchars($g['category']) : 'Games' ?></div>
+                        <div class="game-category"><?= isset($g['category_name']) ? htmlspecialchars($g['category_name']) : '' ?></div>
                         <div class="game-description">
                             <svg class="description-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -313,8 +313,8 @@
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414a1 1 0 00-.707-.293H4"/>
                 </svg>
-                <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">No Games Found</h3>
-                <p>No games found in this category. Try selecting a different category.</p>
+                <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">No Posts Found</h3>
+                <p>No content found in this category. Try selecting a different category.</p>
             </div>
         <?php endif; ?>
     </div>
