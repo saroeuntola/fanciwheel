@@ -91,7 +91,6 @@ class Auth
     public function logout()
     {
         session_destroy();
-
         if (isset($_COOKIE['remember_token'])) {
             $token = hash('sha256', $_COOKIE['remember_token']);
             dbDelete('user_tokens', "token = " . $this->db->quote($token));
