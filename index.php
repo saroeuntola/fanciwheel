@@ -168,7 +168,7 @@ if ($selectedCategory) {
   <div class="flex flex-wrap justify-center gap-2">
     <!-- 'All' Button -->
     <a href="?category=" class="px-4 py-2 rounded-xl shadow-md text-sm font-medium transition-all duration-300 
-      <?= empty($selectedCategory) ? 'bg-blue-600 text-white' : 'bg-white text-slate-700 border border-slate-300 hover:bg-blue-600' ?>">
+      <?= empty($selectedCategory) ? 'bg-blue-600 text-white' : 'bg-white text-slate-700 border border-slate-300 hover:bg-blue-600 hover:text-white' ?>">
       All
     </a>
 
