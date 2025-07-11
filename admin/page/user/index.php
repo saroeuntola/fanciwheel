@@ -48,7 +48,7 @@ $users = $user -> getUsers();
         <div class="main-panel" id="content">
            <div class="mt-5">
         <h2 class="text-2xl font-bold mb-6">User List</h2>
-        <a href="create.php" class='text-white bg-blue-600 px-3 py-2 rounded-md '>Create User</a>
+        <a href="create.php" class='text-white bg-blue-600 px-3 py-2 rounded-md'> Create User </a>
  <table class="min-w-full bg-white border border-gray-200 rounded-lg mt-3 shadow-md">
     <thead>
         <tr class="text-left text-sm font-medium text-gray-600 bg-gray-50">
@@ -85,12 +85,6 @@ $users = $user -> getUsers();
     </>
 </table>
     </div>
-
-            <!-- 
-            <footer class="footer">
-                
-            </footer> 
-            -->
         </div>
     </div>
 </div>

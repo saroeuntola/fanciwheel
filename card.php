@@ -1,4 +1,3 @@
-
 <style>
     * {
         margin: 0;
@@ -263,7 +262,7 @@
     <div class="games-grid">
         <?php if (!empty($games)): ?>
             <?php foreach ($games as $index => $g): ?>
-                <div class="game-card" onclick="window.location.href='game-detail.php?id=<?= $g['id'] ?>'">
+                <div class="game-card" onclick="window.location.href='detail.php?id=<?= $g['id'] ?>'">
                     <div class="game-image">
                         <?php if (!empty($g['image'])): ?>
                             <img src="<?= './admin/page/game/' . htmlspecialchars($g['image']) ?>"

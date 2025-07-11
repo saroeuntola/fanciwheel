@@ -50,6 +50,7 @@ class Auth
                         'expires_at' => date('Y-m-d H:i:s', $expiry)
                     ]);
 
+                    // Set cookie for 30 days
                     setcookie("remember_token", $token, $expiry, "/", "", true, true);
                 }
 

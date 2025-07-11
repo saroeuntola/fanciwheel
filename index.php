@@ -346,7 +346,6 @@ if ($selectedCategory) {
     'https://via.placeholder.com/1200x400/059669/FFFFFF?text=Game+3',
     'https://via.placeholder.com/1200x400/F59E0B/FFFFFF?text=Game+4'
   ];
-
   const slideImage = document.getElementById('slide-image');
   const nextBtn = document.getElementById('nextBtn');
   const prevBtn = document.getElementById('prevBtn');

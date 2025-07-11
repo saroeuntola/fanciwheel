@@ -2,15 +2,13 @@
 <?php
 $userLib = new User();
 $userId = $_SESSION['user_id'] ?? null;
-
 if (!$userId) {
     header("Location: login.php");
     exit;
 }
-
 $user = $userLib->getUser($userId);
-?>
 
+?>
 <div class="scrollbar-inner sidebar-wrapper">
     <!-- Profile Block -->
     <a href="<?= $baseURL ?>/admin/page/user/profile.php" class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-md mb-4">
@@ -30,7 +28,7 @@ $user = $userLib->getUser($userId);
             </h6>
         </div>
     </a>
-    
+
     <!-- Navigation -->
     <ul class="nav">
         <li class="nav-item <?php echo (basename($_SERVER['REQUEST_URI']) == 'index.php') ? 'active' : ''; ?>">

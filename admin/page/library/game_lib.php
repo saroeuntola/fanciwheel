@@ -93,6 +93,7 @@ public function getRelatedGames($gameId, $categoryId, $limit = 4) {
         ];
         return dbUpdate('games', $data, "id=" . $this->db->quote($id));
     }
+    
 
     // Delete a product
     public function deleteGame($id) {
@@ -100,7 +101,7 @@ public function getRelatedGames($gameId, $categoryId, $limit = 4) {
     }
 
     // Get popular games (latest games for now - can be enhanced with view counts later)
-    public function getPopularGames($limit = 5) {
+    public function getPopularGames($limit = 6) {
         $query = "SELECT p.*, c.name AS category_name 
                   FROM games p
                   JOIN categories c ON p.category_id = c.id 
@@ -115,5 +116,6 @@ public function getRelatedGames($gameId, $categoryId, $limit = 4) {
             die("Error fetching popular games: " . $e->getMessage());
         }
     }
+    
 }
 ?>
