@@ -45,7 +45,7 @@ $products = $product->getgames();
 <!-- page content  -->
         <div class="main-panel" id="content">
              <div class="w-full max-w-6xl bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-2xl font-bold text-center mb-6">Games List</h2>
+        <h2 class="text-2xl font-bold text-center mb-6">Content List</h2>
 
         <!-- Create Product Button -->
         <div class="flex justify-end mb-4">
