@@ -69,7 +69,7 @@ $userCount = dbCount("users");
 											</div>
 											<div class="col-7 d-flex align-items-center">
 												<div class="numbers">
-													<p class="card-category">Games Content</p>
+													<p class="card-category">Content Post</p>
 													<h4 class="card-title"><?php echo $productCount; ?></h4>
 												</div>
 											</div>

@@ -44,8 +44,8 @@ $user = $userLib->getUser($userId);
         <li class="nav-item <?php echo (strpos($_SERVER['REQUEST_URI'], 'page/product/index.php') !== false) ? 'active' : ''; ?>">
             <a href="<?= $baseURL ?>/admin/page/game/index.php">
                 <i class="la la-table"></i>
-                <p>Games</p>
-                <span class="badge badge-count">14</span>
+                <p>Content</p>
+           
             </a>
         </li>
 
@@ -53,7 +53,7 @@ $user = $userLib->getUser($userId);
             <a href="<?= $baseURL ?>/admin/page/category/index.php">
                 <i class="la la-keyboard-o"></i>
                 <p>Category</p>
-                <span class="badge badge-count">50</span>
+     
             </a>
         </li>
 
@@ -61,7 +61,7 @@ $user = $userLib->getUser($userId);
             <a href="<?= $baseURL ?>/admin/page/banner/index.php">
                 <i class="la la-th"></i>
                 <p>Banner</p>
-                <span class="badge badge-count">6</span>
+             
             </a>
         </li>
 
@@ -69,7 +69,7 @@ $user = $userLib->getUser($userId);
             <a href="<?= $baseURL ?>/admin/page/brand/index.php">
                 <i class="la la-tags"></i>
                 <p>Brand</p>
-                <span class="badge badge-count">6</span>
+              
             </a>
         </li>
 
@@ -77,7 +77,7 @@ $user = $userLib->getUser($userId);
             <a href="<?= $baseURL ?>/admin/page/user/index.php">
                 <i class="la la-users"></i>
                 <p>Users</p>
-                <span class="badge badge-success">3</span>
+              
             </a>
         </li>
 

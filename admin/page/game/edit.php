@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="mb-4">
                 <label for="name" class="block text-sm font-medium text-gray-700">Meta Text image</label>
-                <input type="text" name="name" value="<?= htmlspecialchars($productData['meta_text']) ?>" required
+                <input type="text" name="meta_text" value="<?= htmlspecialchars($productData['meta_text']) ?>" required
                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             </div>
             <!-- game_link -->
