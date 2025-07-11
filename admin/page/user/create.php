@@ -5,18 +5,15 @@ $userAuth = new Auth();
 $role = new User();
 $roles = $role -> getRoles();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $sex = $_POST['sex']; 
     $role_id = $_POST['role'];  
     $userAuth->register($username, $email, $password, $sex, $role_id);
+    
 }
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
