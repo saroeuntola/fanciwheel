@@ -14,13 +14,14 @@ class Games {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     // Create a new product
-    public function createGames($name, $image, $description,$link, $category_id) {
+    public function createGames($name, $image, $description,$link, $category_id,$meta_text) {
         $data = [
             'name' => $name,
             'image' => $image,
             'description' => $description,
             'game_link' => $link, 
-            'category_id' => $category_id
+            'category_id' => $category_id,
+            'meta_text' => $meta_text
         ];
         return dbInsert('games', $data);
     }
@@ -78,7 +79,7 @@ public function getRelatedGames($gameId, $categoryId, $limit = 4) {
     
 
     // Update a product
-    public function updateGame($id, $name, $image, $description, $game_link, $category_id) {
+    public function updateGame($id, $name, $image, $description, $game_link, $category_id, $meta_text) {
         if (!$this->getGameById($id)) {
             return false; 
         }
@@ -87,7 +88,8 @@ public function getRelatedGames($gameId, $categoryId, $limit = 4) {
             'image' => $image,
             'description' => $description,
             'game_link' => $game_link,
-            'category_id' => $category_id
+            'category_id' => $category_id,
+            'meta_text' => $meta_text
         ];
         return dbUpdate('games', $data, "id=" . $this->db->quote($id));
     }
