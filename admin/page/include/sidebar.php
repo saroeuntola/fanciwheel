@@ -30,7 +30,7 @@ $user = $userLib->getUser($userId);
             </h6>
         </div>
     </a>
-
+    
     <!-- Navigation -->
     <ul class="nav">
         <li class="nav-item <?php echo (basename($_SERVER['REQUEST_URI']) == 'index.php') ? 'active' : ''; ?>">

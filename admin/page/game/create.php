@@ -63,7 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700">Meta Text</label>
-                <input type="text" name="meta_text" required class="w-full px-3 py-2 border rounded-md">
+        
+                <textarea name="meta_text" rows="3" class="w-full px-3 py-2 border rounded-md"></textarea>
             </div>
             <!-- Price -->
             <div class="mb-4">

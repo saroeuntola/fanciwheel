@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
-        <h2 class="text-2xl font-bold text-center mb-6">Edit Game</h2>
+        <h2 class="text-2xl font-bold text-center mb-6">Edit Post</h2>
 
         <?php if (isset($error)): ?>
             <p class="text-red-500 text-center"><?= htmlspecialchars($error) ?></p>
@@ -83,8 +83,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="mb-4">
                 <label for="name" class="block text-sm font-medium text-gray-700">Meta Text image</label>
-                <input type="text" name="meta_text" value="<?= htmlspecialchars($productData['meta_text']) ?>" required
-                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <textarea name="meta_text" rows="3" required
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"><?= htmlspecialchars($productData['meta_text']) ?></textarea>
+               
+                   
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             </div>
             <!-- game_link -->
             <div class="mb-4">

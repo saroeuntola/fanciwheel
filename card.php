@@ -276,7 +276,6 @@
                                 <span>No Image</span>
                             </div>
                         <?php endif; ?>
-                       
                     </div>
                     <div class="game-content">
                         <div class="game-rank"><?= ($index + 1) ?>. <?= htmlspecialchars($g['name']) ?></div>
@@ -308,7 +307,6 @@
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <!-- Empty State -->
             <div class="empty-state">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414a1 1 0 00-.707-.293H4"/>
@@ -338,7 +336,6 @@ function generateStarRating($rating, $maxStars = 5) {
     return $html;
 }
 
-// Function to format large numbers
 function formatNumber($number) {
     if ($number >= 1000000) {
         return number_format($number / 1000000, 1) . 'M';
