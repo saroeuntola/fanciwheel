@@ -157,6 +157,8 @@ if ($selectedCategory) {
   ?>
 <!-- Banner Slideshow -->
 <?php include 'cover.php'; ?>
+
+<?php include 'scroll-top-button.php'; ?>
 <div class="mb-10">
 
 </div>

@@ -56,7 +56,7 @@ $metaText = $game['meta_text'] ?? 'Image';
 <body class="bg-gray-50 text-gray-800">
 <?php include 'navbar.php'; ?>
 <?php include 'loading.php'; ?>
-
+<?php include 'scroll-top-button.php'; ?>
 <div class="max-w-7xl mx-auto px-4 py-8 lg:py-12">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     <!-- Main Content -->
