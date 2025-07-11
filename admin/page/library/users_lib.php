@@ -2,7 +2,6 @@
 class User
 {
     public $db;
-
     public function __construct()
     {
         $this->db = dbConn();
