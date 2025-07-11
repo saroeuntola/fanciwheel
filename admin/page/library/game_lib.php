@@ -96,5 +96,22 @@ public function getRelatedGames($gameId, $categoryId, $limit = 4) {
     public function deleteGame($id) {
         return dbDelete('games', "id=" . $this->db->quote($id));
     }
+
+    // Get popular games (latest games for now - can be enhanced with view counts later)
+    public function getPopularGames($limit = 5) {
+        $query = "SELECT p.*, c.name AS category_name 
+                  FROM games p
+                  JOIN categories c ON p.category_id = c.id 
+                  ORDER BY p.created_at DESC
+                  LIMIT :limit";
+        try {
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Error fetching popular games: " . $e->getMessage());
+        }
+    }
 }
 ?>
