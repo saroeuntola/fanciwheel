@@ -1,2 +1,4 @@
-
+/config/*
+/migrade.php
+/seed.php
 
