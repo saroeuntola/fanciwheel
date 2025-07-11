@@ -40,7 +40,6 @@ $users = $user -> getUsers();
     
         <!-- sidebar -->
         <div class="sidebar">
-            <!-- Corrected path for sidebar.php -->
             <?php include "../include/sidebar.php"; ?>
         </div>
 
