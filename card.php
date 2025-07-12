@@ -249,17 +249,36 @@
         }
     }
 </style>
-
 <div class="games-container">
     <div class="games-header">
-        <h1 class="sm:text-2xl md:text-2xl lg:text-3xl text-black">Popular Cities in Bangladesh
+        <h1 class="sm:text-2xl md:text-2xl lg:text-3xl text-black">
+            Popular Cities in Bangladesh
         </h1>
-        <a href="#" class="see-all-btn">See all</a>
+
+        <!-- Filter Sort Dropdown -->
+        <select id="sortSelect" class="border border-gray-800 rounded-full px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-800 hover:text-white transition">
+            <option value="">Filter Sort</option>
+            <option value="asc" <?= isset($_GET['sort']) && $_GET['sort'] === 'asc' ? 'selected' : '' ?>>A–Z</option>
+            <option value="desc" <?= isset($_GET['sort']) && $_GET['sort'] === 'desc' ? 'selected' : '' ?>>Z–A</option>
+        </select>
     </div>
-    
-    <p class="games-subtitle">These rankings are informed by user reviews, ratings, number of downloads, and gameplay hours.</p>
-    
+
+    <p class="games-subtitle">
+        These rankings are informed by user reviews, ratings, number of downloads, and gameplay hours.
+    </p>
+
     <div class="games-grid">
+        <?php
+       
+        // Sorting logic
+        if (isset($_GET['sort']) && in_array($_GET['sort'], ['asc', 'desc'])) {
+            usort($games, function ($a, $b) {
+                $order = $_GET['sort'] === 'asc' ? 1 : -1;
+                return $order * strcmp($a['name'], $b['name']);
+            });
+        }
+        ?>
+
         <?php if (!empty($games)): ?>
             <?php foreach ($games as $index => $g): ?>
                 <div class="game-card" onclick="window.location.href='detail.php?id=<?= $g['id'] ?>'">
@@ -270,7 +289,8 @@
                         <?php else: ?>
                             <div class="no-image-placeholder">
                                 <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                 </svg>
                                 <span>No Image</span>
                             </div>
@@ -298,7 +318,8 @@
                         <div class="game-category"><?= isset($g['category_name']) ? htmlspecialchars($g['category_name']) : '' ?></div>
                         <div class="game-description">
                             <svg class="description-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
                             <span><?= htmlspecialchars(substr($g['description'], 0, 120)) ?><?= strlen($g['description']) > 120 ? '...' : '' ?></span>
                         </div>
@@ -308,7 +329,8 @@
         <?php else: ?>
             <div class="empty-state">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414a1 1 0 00-.707-.293H4"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414a1 1 0 00-.707-.293H4"/>
                 </svg>
                 <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">No Posts Found</h3>
                 <p>No content found in this category. Try selecting a different category.</p>
@@ -317,9 +339,8 @@
     </div>
 </div>
 
-
 <?php
-
+// Helpers
 function generateStarRating($rating, $maxStars = 5) {
     $html = '<div class="rating-stars">';
     for ($i = 1; $i <= $maxStars; $i++) {
@@ -344,19 +365,30 @@ function formatNumber($number) {
     return number_format($number);
 }
 
-// Function to truncate text
 function truncateText($text, $length = 120) {
     return strlen($text) > $length ? substr($text, 0, $length) . '...' : $text;
 }
-
 ?>
 
 <script>
-   
+    // Handle sort select dropdown
+    document.getElementById('sortSelect').addEventListener('change', function () {
+        const selected = this.value;
+        const url = new URL(window.location.href);
+        if (selected) {
+            url.searchParams.set('sort', selected);
+        } else {
+            url.searchParams.delete('sort');
+        }
+        window.location.href = url.toString();
+    });
+
+    // Optional visual feedback
     document.querySelectorAll('.game-card').forEach(card => {
-        card.addEventListener('click', function() {
+        card.addEventListener('click', function () {
             this.style.opacity = '0.7';
             this.style.pointerEvents = 'none';
         });
     });
 </script>
+

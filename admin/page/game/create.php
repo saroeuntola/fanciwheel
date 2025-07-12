@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "<p class='text-red-500'>Error: Content could not be created.</p>";
     }
+    
 }
 ?>
 <!DOCTYPE html>

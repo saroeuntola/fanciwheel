@@ -11,9 +11,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-  
-
         .footer {
             background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             color: white;
@@ -325,7 +322,7 @@
         <div class="footer-content">
             <!-- Logo & Description -->
             <div class="footer-section logo-section">
-                <h2 class="logo glow">Games</h2>
+                <h2 class="logo glow">FancyWheel</h2>
                 <p class="footer-description">
                     Explore, spin and play the most exciting games online.
                     Fun starts here with a click. Join millions of gamers worldwide!
@@ -392,7 +389,7 @@
                 <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-full bg-gray-800 text-white w-full mb-2" /> 
                 <ul class="footer-links">
                  <a href="login.php" class="relative group px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                 <span class="relative z-10 font-medium">GET START</span>
+                 <span class="relative z-10 font-medium">Get Started</span>
            
           </a>
 
@@ -401,7 +398,7 @@
         </div>
 
         <div class="footer-bottom">
-            &copy; <span class="current-year">2024</span> Games. All rights reserved. | Made with ❤️ for gamers worldwide
+            &copy; <span class="current-year">2024</span> FancyWheel. All rights reserved. | Made with ❤️ for gamers worldwide
         </div>
     </footer>
 

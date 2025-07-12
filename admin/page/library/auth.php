@@ -83,10 +83,8 @@ class Auth
                 return true;
             }
         }
-
         return false;
     }
-
     // Logout 
     public function logout()
     {
