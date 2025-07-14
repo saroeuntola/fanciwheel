@@ -146,49 +146,42 @@ if ($selectedCategory) {
     animation: gradient-x 3s ease infinite;
   }
 </style>
-<body>
-  <nav class="w-full shadow-md sticky top-0 z-50">
-    <!-- Include Navbar -->
-  <?php include 'navbar.php'; ?>
+<body class="bg-gray-900 text-white">
+  <nav class="w-full shadow-md sticky top-0 z-50 bg-gray-800">
+    <?php include 'navbar.php'; ?>
   </nav>
-  <?php 
-    include 'loading.php';
-  ?>
-<!-- Banner Slideshow -->
-<?php include 'cover.php'; ?>
 
-<?php include 'scroll-top-button.php'; ?>
-<div class="mb-10">
+  <?php include 'loading.php'; ?>
+  <?php include 'cover.php'; ?>
+  <?php include 'scroll-top-button.php'; ?>
 
-</div>
+  <div class="mb-10"></div>
 
-<div class="w-full flex justify-center mt-4 sm:mt-0">
-  
-  <div class="flex flex-wrap justify-center gap-2">
-    <!-- 'All' Button -->
-    <a href="?category=" class="px-4 py-2 rounded-xl shadow-md text-sm font-medium transition-all duration-300 
-      <?= empty($selectedCategory) ? 'bg-blue-600 text-white' : 'bg-white text-slate-700 border border-slate-300 hover:bg-blue-600 hover:text-white' ?>">
-      All
-    </a>
-    <?php foreach ($categories as $cat): ?>
-      <a href="?category=<?= $cat['id'] ?>"
-         class="px-4 py-2 rounded-xl shadow-md text-sm font-medium transition-all duration-300 
-           <?= $selectedCategory == $cat['id'] ? 'bg-blue-600 text-white' : 'bg-white text-slate-700 hover:bg-blue-600 hover:text-white' ?>">
-        <?= htmlspecialchars($cat['name']) ?>
+  <!-- Category Buttons -->
+  <div class="w-full flex justify-center mt-4 sm:mt-0">
+    <div class="flex flex-wrap justify-center gap-2">
+      <!-- 'All' Button -->
+      <a href="?category=" class="px-4 py-2 rounded-xl shadow-md text-sm font-medium transition-all duration-300 
+        <?= empty($selectedCategory) ? 'bg-blue-600 text-white' : 'bg-gray-800 text-white border border-slate-500 hover:bg-blue-600' ?>">
+        All
       </a>
-    <?php endforeach; ?>
+      <?php foreach ($categories as $cat): ?>
+        <a href="?category=<?= $cat['id'] ?>"
+           class="px-4 py-2 rounded-xl shadow-md text-sm font-medium transition-all duration-300 
+             <?= $selectedCategory == $cat['id'] ? 'bg-blue-600 text-white' : 'bg-gray-800 text-white border border-slate-500 hover:bg-blue-600' ?>">
+          <?= htmlspecialchars($cat['name']) ?>
+        </a>
+      <?php endforeach; ?>
+    </div>
   </div>
-</div>
 
-<div class="lg:px-20">
-<?php 
-  include 'card.php';
-?>
-</div>
+  <!-- Cards Section -->
+  <div class="lg:px-20 mt-6">
+    <?php include 'card.php'; ?>
+  </div>
 
-<?php include 'footer.php';?>
-<!-- Spin Wheel Modal -->
-<?php include 'spin-popup.php'; ?>
-
+  <?php include 'footer.php'; ?>
+  <?php include 'spin-popup.php'; ?>
 </body>
+
 </html>

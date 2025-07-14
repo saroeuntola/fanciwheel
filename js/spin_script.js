@@ -115,7 +115,7 @@ spinBtn.addEventListener("click", spin);
 window.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     document.getElementById("spinModal").classList.remove("hidden");
-    rotateWheel(0); // Draw the wheel initially
+    rotateWheel(0); 
   }, 500);
 });
 

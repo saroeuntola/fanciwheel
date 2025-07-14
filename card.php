@@ -7,8 +7,8 @@
 
     body {
         font-family: 'Trip Sans VF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        background-color: #faf1ed;
-        color: #1a1a1a;
+        background-color: #111827; /* Dark background */
+        color: #f1f5f9; /* Light text */
         line-height: 1.5;
     }
 
@@ -23,23 +23,24 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 16px;
+        flex-wrap: wrap;
     }
 
     .games-title {
         font-size: 32px;
         font-weight: 700;
-        color: #1a1a1a;
+        color: #f9fafb;
         margin: 0;
     }
 
     .see-all-btn {
         background: none;
-        border: 2px solid #1a1a1a;
+        border: 2px solid #f1f5f9;
         border-radius: 24px;
         padding: 8px 16px;
         font-size: 14px;
         font-weight: 600;
-        color: #1a1a1a;
+        color: #f1f5f9;
         cursor: pointer;
         transition: all 0.2s ease;
         text-decoration: none;
@@ -47,13 +48,13 @@
     }
 
     .see-all-btn:hover {
-        background-color: #1a1a1a;
-        color: white;
+        background-color: #f1f5f9;
+        color: #111827;
     }
 
     .games-subtitle {
         font-size: 14px;
-        color: #5a5a5a;
+        color: #94a3b8;
         margin-bottom: 24px;
         font-weight: 400;
     }
@@ -65,18 +66,19 @@
     }
 
     .game-card {
-        background: white;
+        background: #1f2937;
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         transition: all 0.3s ease;
         position: relative;
         cursor: pointer;
+        border: 1px solid #374151;
     }
 
     .game-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     }
 
     .game-image {
@@ -102,100 +104,45 @@
         right: 12px;
         width: 32px;
         height: 32px;
-        background: white;
+        background: #374151;
         border: none;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         transition: all 0.2s ease;
+        color: #f9fafb;
     }
 
     .favorite-btn:hover {
-        background-color: #ff4757;
+        background-color: #ef4444;
         color: white;
-    }
-
-    .favorite-btn svg {
-        width: 16px;
-        height: 16px;
     }
 
     .game-content {
         padding: 16px;
     }
 
-    .game-rank {
-        font-size: 18px;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-bottom: 8px;
-    }
-
-    .game-name {
-        font-size: 16px;
-        font-weight: 600;
-        color: #1a1a1a;
-        margin-bottom: 8px;
-        text-decoration: none;
+    .game-rank,
+    .game-name,
+    .rating-score {
+        color: #f9fafb;
     }
 
     .game-name:hover {
-        color: #00aa6c;
+        color: #22c55e;
     }
 
-    .game-rating {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 8px;
-    }
-
-    .rating-score {
-        font-size: 14px;
-        font-weight: 600;
-        color: #1a1a1a;
-    }
-
-    .rating-stars {
-        display: flex;
-        gap: 2px;
-    }
-
-    .star {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-    }
-
-    .star.filled {
-        background-color: #00aa6c;
-    }
-
-    .star.half {
-        background: linear-gradient(90deg, #00aa6c 50%, #d4d4d4 50%);
-    }
-
-    .star.empty {
-        background-color: #d4d4d4;
-    }
-
-    .rating-count {
-        font-size: 14px;
-        color: #5a5a5a;
-    }
-
+    .rating-count,
     .game-category {
-        font-size: 14px;
-        color: #5a5a5a;
-        margin-bottom: 12px;
+        color: #9ca3af;
     }
 
     .game-description {
         font-size: 14px;
-        color: #1a1a1a;
+        color: #e5e7eb;
         line-height: 1.4;
         display: flex;
         align-items: flex-start;
@@ -205,7 +152,7 @@
     .description-icon {
         width: 16px;
         height: 16px;
-        color: #00aa6c;
+        color: #22c55e;
         flex-shrink: 0;
         margin-top: 2px;
     }
@@ -213,18 +160,18 @@
     .no-image-placeholder {
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        color: #5a5a5a;
+        color: #9ca3af;
     }
 
     .empty-state {
         text-align: center;
         padding: 80px 20px;
-        color: #5a5a5a;
+        color: #6b7280;
         grid-column: 1 / -1;
     }
 
@@ -232,31 +179,64 @@
         width: 64px;
         height: 64px;
         margin-bottom: 16px;
-        color: #d4d4d4;
+        color: #4b5563;
+    }
+
+    #sortSelect {
+        background-color: #1f2937;
+        color: #f1f5f9;
+        border: 1px solid #4b5563;
+        border-radius: 9999px;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    #sortSelect:hover {
+        background-color: #374151;
+    }
+
+    .star {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+
+    .star.filled {
+        background-color: #22c55e;
+    }
+
+    .star.half {
+        background: linear-gradient(90deg, #22c55e 50%, #4b5563 50%);
+    }
+
+    .star.empty {
+        background-color: #4b5563;
     }
 
     @media (max-width: 768px) {
         .games-grid {
             grid-template-columns: 1fr;
         }
-        
+
         .games-title {
             font-size: 24px;
         }
-        
+
         .games-container {
             padding: 20px 16px;
         }
     }
 </style>
+
+<!-- HTML CONTENT START -->
 <div class="games-container">
     <div class="games-header">
-        <h1 class="sm:text-2xl md:text-2xl lg:text-3xl text-black">
-            Popular Cities in Bangladesh
-        </h1>
+        <h1 class="games-title">Popular Cities in Bangladesh</h1>
 
-        <!-- Filter Sort Dropdown -->
-        <select id="sortSelect" class="border border-gray-800 rounded-full px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-800 hover:text-white transition">
+        <!-- Sort dropdown -->
+        <select id="sortSelect">
             <option value="">Filter Sort</option>
             <option value="asc" <?= isset($_GET['sort']) && $_GET['sort'] === 'asc' ? 'selected' : '' ?>>A–Z</option>
             <option value="desc" <?= isset($_GET['sort']) && $_GET['sort'] === 'desc' ? 'selected' : '' ?>>Z–A</option>
@@ -269,8 +249,6 @@
 
     <div class="games-grid">
         <?php
-       
-        // Sorting logic
         if (isset($_GET['sort']) && in_array($_GET['sort'], ['asc', 'desc'])) {
             usort($games, function ($a, $b) {
                 $order = $_GET['sort'] === 'asc' ? 1 : -1;
@@ -298,29 +276,10 @@
                     </div>
                     <div class="game-content">
                         <div class="game-rank"><?= ($index + 1) ?>. <?= htmlspecialchars($g['name']) ?></div>
-                        <div class="game-rating">
-                            <span class="rating-score"><?= isset($g['rating']) ? number_format($g['rating'], 1) : '4.2' ?></span>
-                            <div class="rating-stars">
-                                <?php 
-                                $rating = isset($g['rating']) ? $g['rating'] : 4.2;
-                                for ($i = 1; $i <= 5; $i++): 
-                                    if ($i <= floor($rating)): ?>
-                                        <div class="star filled"></div>
-                                    <?php elseif ($i <= ceil($rating) && $rating - floor($rating) >= 0.5): ?>
-                                        <div class="star half"></div>
-                                    <?php else: ?>
-                                        <div class="star empty"></div>
-                                    <?php endif;
-                                endfor; ?>
-                            </div>
-                            <span class="rating-count"><?= isset($g['review_count']) ? number_format($g['review_count']) : rand(100, 2000) ?></span>
-                        </div>
+                      
                         <div class="game-category"><?= isset($g['category_name']) ? htmlspecialchars($g['category_name']) : '' ?></div>
                         <div class="game-description">
-                            <svg class="description-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
+                           
                             <span><?= htmlspecialchars(substr($g['description'], 0, 120)) ?><?= strlen($g['description']) > 120 ? '...' : '' ?></span>
                         </div>
                     </div>
@@ -339,39 +298,8 @@
     </div>
 </div>
 
-<?php
-// Helpers
-function generateStarRating($rating, $maxStars = 5) {
-    $html = '<div class="rating-stars">';
-    for ($i = 1; $i <= $maxStars; $i++) {
-        if ($i <= floor($rating)) {
-            $html .= '<div class="star filled"></div>';
-        } elseif ($i <= ceil($rating) && ($rating - floor($rating)) >= 0.5) {
-            $html .= '<div class="star half"></div>';
-        } else {
-            $html .= '<div class="star empty"></div>';
-        }
-    }
-    $html .= '</div>';
-    return $html;
-}
-
-function formatNumber($number) {
-    if ($number >= 1000000) {
-        return number_format($number / 1000000, 1) . 'M';
-    } elseif ($number >= 1000) {
-        return number_format($number / 1000, 1) . 'K';
-    }
-    return number_format($number);
-}
-
-function truncateText($text, $length = 120) {
-    return strlen($text) > $length ? substr($text, 0, $length) . '...' : $text;
-}
-?>
-
+<!-- Sort Script -->
 <script>
-    // Handle sort select dropdown
     document.getElementById('sortSelect').addEventListener('change', function () {
         const selected = this.value;
         const url = new URL(window.location.href);
@@ -382,13 +310,4 @@ function truncateText($text, $length = 120) {
         }
         window.location.href = url.toString();
     });
-
-    // Optional visual feedback
-    document.querySelectorAll('.game-card').forEach(card => {
-        card.addEventListener('click', function () {
-            this.style.opacity = '0.7';
-            this.style.pointerEvents = 'none';
-        });
-    });
 </script>
-
