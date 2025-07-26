@@ -32,7 +32,7 @@ if ($selectedCategory) {
   <!-- Meta description for Google -->
   <meta name="description" content="Spin the FancyWheel and win real cash rewards instantly. No sign-up required — just pure luck and fun! Try your fortune now.">
 
-  <link rel="icon" href="https://img.f369w.com/fw/h5/assets/images/icons/PWAicon-192px.png?v=1753166904845" type="image/png">
+  <link rel="icon" href="https://fanciwheel.com/image/PWAicon-192px.png" type="image/png">
   <!-- Canonical URL -->
   <link rel="canonical" href="https://fanciwheel.com" />
 

@@ -2,75 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fish Shooting Game with Fire Limit</title>
   <link rel="icon" type="image/png" href="./img/fish.png">
-  <style>
-    body {
-      margin: 0; 
-      background: linear-gradient(to bottom, #004d66, #99d6ff);
-      overflow: hidden;
-      user-select: none;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(to bottom, #004d66, #99d6ff);
+    overflow: hidden;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+  canvas {
+    display: block;
+    margin: 0 auto;
+    background: #003344;
+    border: 2px solid #0077aa;
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  #scoreboard, #shotsLeft {
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #00ffff;
+    display: inline-block;
+    margin: 5px 10px;
+  }
+
+  #resetBtn {
+    margin-top: 12px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    background: #00aaff;
+    color: white;
+    box-shadow: 0 0 10px #00ccff;
+  }
+
+  #resetBtn:hover {
+    background: #0077aa;
+  }
+
+  #message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: 900;
+    color: #00ffcc;
+    text-shadow: 0 0 20px #00ffcc;
+    display: none;
+    user-select: none;
+    z-index: 9999;
+  }
+
+  p {
+    font-size: 15px;
+    color: #003344;
+    font-weight: bold;
+    margin: 15px auto;
+    max-width: 90%;
+  }
+
+  a {
+    color: #003344;
+    text-decoration: underline;
+  }
+
+  /* 📱 Mobile Styles */
+  @media (max-width: 768px) {
+    #scoreboard, #shotsLeft {
+      font-size: 18px;
     }
-    canvas {
-      display: block;
-      margin: 0 auto;
-      background: #003344;
-      border: 2px solid #0077aa;
-      border-radius: 10px;
-    }
-    #scoreboard {
-      margin: 10px;
-      font-size: 24px;
-      font-weight: bold;
-      text-shadow: 0 0 5px #00ffff;
-      display: inline-block;
-      width: 150px;
-    }
-    #shotsLeft{
-      font-size: 24px;
-      font-weight: bold;
-      text-shadow: 0 0 5px #00ffff;
-      display: inline-block;
-     
-    }
+
     #resetBtn {
-      margin-top: 10px;
-      padding: 8px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
-      border: none;
-      background: #00aaff;
-      color: white;
-      box-shadow: 0 0 10px #00ccff;
+      padding: 8px 16px;
+      font-size: 14px;
     }
-    #resetBtn:hover {
-      background: #0077aa;
-    }
+
     #message {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 60px;
-      font-weight: 900;
-      color: #00ffcc;
-      text-shadow: 0 0 20px #00ffcc;
-      display: none;
-      user-select: none;
-      z-index: 9999;
+      font-size: 32px;
     }
-        p {
-  font-size: 16px;
-  color: #003344;
-  font-weight: bold;
-  
-  margin: 15px auto;
-}
-  </style>
+
+    canvas {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #scoreboard, #shotsLeft {
+      font-size: 16px;
+    }
+
+    #resetBtn {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    #message {
+      font-size: 24px;
+    }
+  }
+</style>
+
 
 </head>
 <body>
@@ -136,6 +180,14 @@
   // Bullet properties
   const bulletSpeed = 5;
   const bulletRadius = 5;
+function resizeCanvas() {
+  const ratio = 4 / 3;
+  const width = Math.min(window.innerWidth - 20, 800);
+  canvas.width = width;
+  canvas.height = width / ratio;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
   // Utility: random int between min and max
   function randomInt(min, max) {

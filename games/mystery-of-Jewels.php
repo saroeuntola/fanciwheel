@@ -4,72 +4,109 @@
   <meta charset="UTF-8" />
   <title>The Mystery of Jewels: Adventure</title>
   <link rel="icon" type="image/png" href="./img/The-Mystery-of-Jewels.jpg"> 
-  <style>
+ <style>
   p {
-    
-  font-size: 16px;
-  color: black;
-  font-weight: bold;
-  text-shadow: 0 0 5px #ff0;
-  margin: 20px auto;
-}
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(to bottom, #ffebee, #ffe0b2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: #d84315;
-    }
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff0;
+    margin: 20px auto;
+    text-align: center;
+    max-width: 90%;
+  }
 
-    h1 {
-      margin: 0;
-      font-size: 32px;
-      color: #ff5722;
-      text-shadow: 2px 2px #fff3e0;
-    }
+  body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(to bottom, #ffebee, #ffe0b2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #d84315;
+  }
 
-    #score {
-      font-size: 22px;
-      margin: 10px 0 20px;
-      background: black;
-      padding: 10px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+  h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #ff5722;
+    text-shadow: 2px 2px #fff3e0;
+    text-align: center;
+  }
 
+  #score {
+    font-size: 22px;
+    margin: 10px 0 20px;
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  #game-board {
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(8, 64px);
+    grid-template-rows: repeat(8, 64px);
+    gap: 6px;
+    background: #fff8e1;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+  }
+
+  .tile {
+    width: 64px;
+    height: 64px;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 18px;
+    background-color: #ffffff;
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: grab;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .tile:active {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #ff9800, inset 0 0 5px #fff3e0;
+  }
+
+  /* 📱 Mobile responsiveness */
+  @media (max-width: 768px) {
     #game-board {
-      margin-bottom: 10px;
-      display: grid;
-      grid-template-columns: repeat(8, 64px);
-      grid-template-rows: repeat(8, 64px);
-      gap: 6px;
-      background: #fff8e1;
-      padding: 10px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      grid-template-columns: repeat(8, 36px);
+      grid-template-rows: repeat(8, 36px);
+      gap: 4px;
+      padding: 8px;
     }
 
     .tile {
-      width: 64px;
-      height: 64px;
-      background-size: 90%;
-      background-repeat: no-repeat;
-      background-position: center;
-      border-radius: 18px;
-      background-color: #ffffff;
-      box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.2);
-      cursor: grab;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background-size: 80%;
     }
 
-    .tile:active {
-      transform: scale(1.1);
-      box-shadow: 0 0 10px #ff9800, inset 0 0 5px #fff3e0;
+    h1 {
+      font-size: 24px;
     }
-  </style>
+
+    #score {
+      font-size: 16px;
+      padding: 6px 12px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+</style>
+
 </head>
 <body>
 <?php 
