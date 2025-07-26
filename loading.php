@@ -32,7 +32,7 @@
       loader.classList.add("opacity-0");
       setTimeout(() => {
         loader.style.display = "none";
-      }, 500);
+      }, 400);
     });
   </script>
 </body>

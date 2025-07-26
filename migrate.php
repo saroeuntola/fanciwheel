@@ -53,7 +53,8 @@ try {
             name VARCHAR(225) NOT NULL,
             image TEXT NULL,
             description TEXT NULL,
-            game_link TEXT NOT NULL,
+            game_link TEXT NULL,
+            meta_text TEXT NULL,
             category_id INT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE

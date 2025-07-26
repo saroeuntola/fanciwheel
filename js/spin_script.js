@@ -122,3 +122,4 @@ window.addEventListener("DOMContentLoaded", () => {
 function closeSpinModal() {
   document.getElementById("spinModal").classList.add("hidden");
 }
+
